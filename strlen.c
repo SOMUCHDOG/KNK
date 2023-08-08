@@ -3,6 +3,7 @@
 
 size_t stringlen(const char *s);
 int read_line(char str[], int n);
+size_t fast(const char *s);
 
 #define MAX_LENGTH 255
 
@@ -12,6 +13,15 @@ int main(void){
     read_line(msg_str, MAX_LENGTH);
 
     printf("The length of the string is: %zu\n", stringlen(msg_str));
+}
+
+/* faster version. Doesn't increment n */
+size_t fast(const char *s){
+    const cahr *p = s;
+
+    while(*s)
+        s++;
+    return s - p;
 }
 
 size_t stringlen(const char *s){
